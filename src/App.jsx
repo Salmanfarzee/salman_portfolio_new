@@ -26,7 +26,12 @@ const card = (hov = false, accent = C.cyan) => ({
 });
 
 // ── Data ───────────────────────────────────────────────────────
-const ROLES = ["Senior React Developer","Full-Stack MERN Engineer","Frontend Architect","API Performance Specialist"];
+const ROLES = [
+  "Senior React Developer",
+  "Full-Stack MERN Engineer",
+  "Frontend Architect",
+  "API Performance Specialist",
+];
 
 const SKILLS = {
   Frontend: { color: C.cyan,   items: ["React.js","Redux Toolkit","TypeScript","JavaScript","Tailwind CSS","HTML5","CSS3","Gatsby.js","Material UI","Bootstrap","React-Bootstrap"] },
@@ -37,26 +42,51 @@ const SKILLS = {
 };
 
 const PROJECTS = [
-  { name: "Giant EIP", role: "Full-Stack Dev", period: "Jul 2025 – Present", accent: C.cyan,
-    desc: "Enterprise integration platform with WCAG-compliant lazy-loaded UI and a NestJS/Prisma backend securing 100% of routes via JWT & OAuth.",
-    tags: ["React.js","NestJS","Prisma","Tailwind CSS","JWT","OAuth","Redux Toolkit","Axios"],
-    stats: [["50%","render time ↓"],["45%","query efficiency ↑"],["100%","routes secured"]] },
-  { name: "Namo Bharat", role: "Frontend Dev", period: "Apr 2023 – Sep 2023", accent: C.purple,
-    desc: "High-performance React application with advanced Redux Toolkit state management, serving a fully responsive cross-device experience.",
-    tags: ["React.js","Redux Toolkit","Context API","RESTful APIs"],
-    stats: [["25%","feature dev time ↓"],["3","device breakpoints"]] },
-  { name: "Star Health", role: "Full-Stack Dev", period: "Jul 2022 – Mar 2023", accent: C.green,
-    desc: "Real-time data-sync backend with Node.js & MongoDB, third-party API integrations, and a 75%+ test-covered Jest/RTL suite.",
-    tags: ["Node.js","Express","MongoDB","Mongoose","Jest","RTL"],
-    stats: [["40%","response time ↓"],["75%+","code coverage"],["20%","engagement ↑"]] },
-  { name: "API Gateway", role: "Frontend Dev", period: "Oct 2022 – Feb 2023", accent: C.orange,
+  {
+    name: "Giant EIP",
+    role: "Full-Stack Dev",
+    period: "Jan 2026 – Present",
+    accent: C.cyan,
+    desc: "Enterprise integration platform with WCAG-compliant lazy-loaded UI and a secure Node.js/Express backend protecting 100% of routes via JWT & OAuth.",
+    tags: ["React.js","Node.js","Express","Tailwind CSS","JWT","OAuth","Redux Toolkit","Axios"],
+    stats: [["50%","render time ↓"],["45%","query efficiency ↑"],["100%","routes secured"]],
+  },
+  {
+    name: "API Gateway",
+    role: "Frontend Dev",
+    period: "Jun 2025 – Dec 2025",
+    accent: C.orange,
     desc: "React component library for a distributed cloud system, pairing optimised RESTful API consumption with accessibility-first design.",
     tags: ["React-Bootstrap","HTML5","CSS3","RESTful APIs"],
-    stats: [["30%","request throughput ↑"]] },
-  { name: "E-commerce Platform", role: "Internship", period: "Dec 2021 – Apr 2022", accent: C.pink,
+    stats: [["30%","request throughput ↑"]],
+  },
+  {
+    name: "Namo Bharat",
+    role: "Frontend Dev",
+    period: "Apr 2023 – Dec 2023",
+    accent: C.purple,
+    desc: "High-performance React application with advanced Redux Toolkit state management, serving a fully responsive cross-device experience.",
+    tags: ["React.js","Redux Toolkit","Context API","RESTful APIs"],
+    stats: [["25%","feature dev time ↓"],["3","device breakpoints"]],
+  },
+  {
+    name: "Star Health Insurance",
+    role: "Full-Stack Dev",
+    period: "Jul 2022 – Mar 2023",
+    accent: C.green,
+    desc: "Real-time data-sync backend with Node.js & MongoDB, third-party API integrations, and a 75%+ test-covered Jest/RTL suite.",
+    tags: ["Node.js","Express","MongoDB","Mongoose","Jest","RTL"],
+    stats: [["40%","response time ↓"],["75%+","code coverage"],["20%","engagement ↑"]],
+  },
+  {
+    name: "E-commerce Platform",
+    role: "Internship",
+    period: "Dec 2021 – Apr 2022",
+    accent: C.pink,
     desc: "Full-stack MERN e-commerce with JWT auth, Redux cart, and a separate admin dashboard — both deployed on Netlify.",
     tags: ["React.js","Node.js","MongoDB","Express","JWT","Redux"],
-    stats: [["2","live deployments"],["Netlify","hosted"]] },
+    stats: [["2","live deployments"],["Netlify","hosted"]],
+  },
 ];
 
 const EXP = {
@@ -77,6 +107,13 @@ const CERTS = [
   { name: "Full-Stack Development",        org: "LinkedIn Learning", year: "2024", icon: "💼" },
   { name: "MERN Stack Web Development",    org: "Udemy",            year: "2023", icon: "🎓" },
   { name: "E-commerce Internship Project", org: "Self-Directed",    year: "2022", icon: "🏗️" },
+];
+
+const CONTACT_ITEMS = [
+  { icon: "✉",  label: "Email",    value: "salmanfarzee0001000@gmail.com", href: "mailto:salmanfarzee0001000@gmail.com" },
+  { icon: "📞", label: "Phone",    value: "+91 82205 25374",               href: "tel:+918220525374" },
+  { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/salman-farzee", href: "https://linkedin.com/in/salman-farzee" },
+  { icon: "📍", label: "Location", value: "Chennai, India",                href: null },
 ];
 
 const NAV_ITEMS = ["About","Skills","Projects","Experience","Certifications","Contact"];
@@ -106,7 +143,6 @@ export default function Portfolio() {
     return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  // Typewriter
   useEffect(() => {
     const role = ROLES[roleIdx];
     const atEnd = charIdx === role.length;
@@ -135,7 +171,7 @@ export default function Portfolio() {
         ::-webkit-scrollbar-track { background:${C.bg}; }
         ::-webkit-scrollbar-thumb { background:${C.cyan}44; border-radius:2px; }
         a { text-decoration:none; }
-        button, input, textarea { font-family:inherit; }
+        button { font-family:inherit; }
 
         .bg-grid {
           background-image: linear-gradient(rgba(0,224,255,.025) 1px, transparent 1px),
@@ -145,7 +181,6 @@ export default function Portfolio() {
         @keyframes orb       { 0%,100%{transform:translate(0,0) scale(1)} 40%{transform:translate(28px,-18px) scale(1.06)} 70%{transform:translate(-18px,24px) scale(.96)} }
         @keyframes blink     { 0%,100%{opacity:1} 50%{opacity:0} }
         @keyframes fadeUp    { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
-        @keyframes glowPulse { 0%,100%{text-shadow:0 0 24px ${C.cyan}55} 50%{text-shadow:0 0 48px ${C.cyan}90,0 0 80px ${C.cyan}30} }
 
         .cursor { display:inline-block; width:2px; height:.9em; background:${C.cyan}; margin-left:2px; vertical-align:middle; border-radius:1px; animation:blink .75s ease-in-out infinite; }
         .orb-a  { position:absolute; border-radius:50%; pointer-events:none; animation:orb 13s ease-in-out infinite; }
@@ -163,12 +198,12 @@ export default function Portfolio() {
         .proj-card:hover  { transform:translateY(-5px); }
         .cert-card  { transition:all .25s ease; }
         .cert-card:hover  { transform:translateY(-3px); }
+        .contact-card { transition:all .25s ease; }
+        .contact-card:hover { transform:translateY(-3px); box-shadow:0 8px 28px ${C.cyan}14; }
+
         .skill-chip { display:inline-block; padding:7px 15px; border-radius:7px; font-size:13px; font-weight:500; cursor:default; transition:transform .18s; font-family:'DM Sans',sans-serif; }
         .skill-chip:hover { transform:translateY(-2px); }
         .tab-btn { padding:7px 17px; border-radius:7px; font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:all .2s; border:1px solid transparent; }
-        .cfield { width:100%; padding:12px 15px; background:rgba(255,255,255,.04); border:1px solid ${C.border}; border-radius:9px; color:${C.text}; font-size:14px; outline:none; font-family:'DM Sans',sans-serif; transition:border-color .2s; }
-        .cfield:focus { border-color:${C.cyan}50; }
-        .cfield::placeholder { color:${C.dim}; }
         .hero-fade { animation:fadeUp .7s ease both; }
       `}</style>
 
@@ -219,7 +254,7 @@ export default function Portfolio() {
           </p>
           <div className="hero-fade" style={{ display:"flex", gap:14, flexWrap:"wrap", justifyContent:"center", animationDelay:".65s" }}>
             <button className="btn-prime" onClick={() => go("projects")}>View Projects →</button>
-            <button className="btn-ghost" onClick={() => go("contact")}>Let's Connect</button>
+            <button className="btn-ghost"  onClick={() => go("contact")}>Let's Connect</button>
           </div>
         </div>
         <div onClick={() => go("about")} style={{ position:"absolute", bottom:30, left:"50%", transform:"translateX(-50%)", display:"flex", flexDirection:"column", alignItems:"center", gap:8, cursor:"pointer", opacity:.45 }}>
@@ -239,16 +274,17 @@ export default function Portfolio() {
               <div style={{ fontSize:12, color:C.cyan, marginTop:4, fontFamily:"'JetBrains Mono',monospace" }}>Chennai · India</div>
             </div>
             <div style={{ display:"flex", flexDirection:"column", gap:8, width:"100%" }}>
-              {[
-                ["✉","salmanfarzee0001000@gmail.com","mailto:salmanfarzee0001000@gmail.com"],
-                ["in","linkedin.com/in/salman-farzee","https://linkedin.com/in/salman-farzee"],
-                ["☎","+91 82205 25374","tel:+918220525374"],
-              ].map(([ic,val,href]) => (
-                <a key={val} href={href} target="_blank" rel="noopener noreferrer"
-                  style={{ ...card(), padding:"10px 14px", display:"flex", gap:10, alignItems:"center", color:C.muted, fontSize:12, fontFamily:"'DM Sans',sans-serif" }}>
-                  <span style={{ color:C.cyan, fontFamily:"'JetBrains Mono',monospace", fontSize:11, minWidth:14 }}>{ic}</span>
-                  <span style={{ overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{val}</span>
-                </a>
+              {CONTACT_ITEMS.map(({ icon, label, value, href }) => (
+                href
+                  ? <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                      style={{ ...card(), padding:"10px 14px", display:"flex", gap:10, alignItems:"center", color:C.muted, fontSize:12, fontFamily:"'DM Sans',sans-serif" }}>
+                      <span style={{ color:C.cyan, fontFamily:"'JetBrains Mono',monospace", fontSize:11, minWidth:14 }}>{icon}</span>
+                      <span style={{ overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>{value}</span>
+                    </a>
+                  : <div key={label} style={{ ...card(), padding:"10px 14px", display:"flex", gap:10, alignItems:"center", color:C.muted, fontSize:12, fontFamily:"'DM Sans',sans-serif" }}>
+                      <span style={{ color:C.cyan, fontFamily:"'JetBrains Mono',monospace", fontSize:11, minWidth:14 }}>{icon}</span>
+                      <span>{value}</span>
+                    </div>
               ))}
             </div>
           </div>
@@ -279,7 +315,7 @@ export default function Portfolio() {
         <div style={{ maxWidth:1100, margin:"0 auto" }}>
           <SecHead label="Technical Skills" accent={C.purple} />
           <div style={{ display:"flex", gap:8, flexWrap:"wrap", marginBottom:24 }}>
-            {Object.entries(SKILLS).map(([k,{ color }]) => (
+            {Object.entries(SKILLS).map(([k, { color }]) => (
               <button key={k} className="tab-btn" onClick={() => setSkillTab(k)}
                 style={{ color: skillTab===k ? color : C.muted, border:`1px solid ${skillTab===k ? color+"55" : C.border}`, background: skillTab===k ? `${color}12` : "transparent", boxShadow: skillTab===k ? `0 0 18px ${color}22` : "none" }}>
                 {k}
@@ -303,7 +339,7 @@ export default function Portfolio() {
       <section id="projects" style={{ padding:"96px clamp(1.5rem,5vw,3.5rem)", maxWidth:1100, margin:"0 auto" }}>
         <SecHead label="Projects" accent={C.cyan} />
         <div style={{ display:"grid", gridTemplateColumns:`repeat(auto-fill,minmax(${mobile?"280px":"310px"},1fr))`, gap:20 }}>
-          {PROJECTS.map((p,i) => (
+          {PROJECTS.map((p, i) => (
             <div key={p.name} className="proj-card"
               onMouseEnter={() => setHovProj(i)} onMouseLeave={() => setHovProj(null)}
               style={{ ...card(hovProj===i, p.accent), padding:24 }}>
@@ -317,7 +353,7 @@ export default function Portfolio() {
               <div style={{ height:1, background:`linear-gradient(to right,${p.accent}44,transparent)`, marginBottom:12 }} />
               <p style={{ color:C.muted, fontSize:13, lineHeight:1.75, marginBottom:12, fontFamily:"'DM Sans',sans-serif" }}>{p.desc}</p>
               <div style={{ display:"flex", flexWrap:"wrap", gap:5, marginBottom:12 }}>
-                {p.stats.map(([n,l]) => (
+                {p.stats.map(([n, l]) => (
                   <span key={l} style={{ display:"inline-flex", alignItems:"center", gap:4, padding:"3px 10px", borderRadius:6, fontSize:11, fontWeight:700, fontFamily:"'JetBrains Mono',monospace", background:`${p.accent}14`, color:p.accent, border:`1px solid ${p.accent}28` }}>
                     <strong>{n}</strong> {l}
                   </span>
@@ -354,7 +390,7 @@ export default function Portfolio() {
                 <span style={{ fontSize:13, color:C.muted, background:"rgba(255,255,255,.05)", padding:"6px 14px", borderRadius:8, alignSelf:"flex-start", fontFamily:"'DM Sans',sans-serif" }}>{EXP.period}</span>
               </div>
               <div style={{ display:"flex", flexDirection:"column", gap:11 }}>
-                {EXP.bullets.map((b,j) => (
+                {EXP.bullets.map((b, j) => (
                   <div key={j} style={{ display:"flex", gap:12, alignItems:"flex-start" }}>
                     <span style={{ color:C.cyan, fontFamily:"'JetBrains Mono',monospace", fontSize:13, marginTop:2, flexShrink:0 }}>▸</span>
                     <span style={{ color:C.muted, fontSize:14, lineHeight:1.68, fontFamily:"'DM Sans',sans-serif" }}>{b}</span>
@@ -370,7 +406,7 @@ export default function Portfolio() {
       <section id="certifications" style={{ padding:"96px clamp(1.5rem,5vw,3.5rem)", maxWidth:1100, margin:"0 auto" }}>
         <SecHead label="Certifications" accent={C.green} />
         <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(240px,1fr))", gap:16 }}>
-          {CERTS.map((c,i) => (
+          {CERTS.map((c, i) => (
             <div key={i} className="cert-card" style={{ ...card(), padding:"20px 22px", display:"flex", gap:14, alignItems:"flex-start" }}>
               <span style={{ fontSize:32, lineHeight:1, flexShrink:0 }}>{c.icon}</span>
               <div>
@@ -387,31 +423,23 @@ export default function Portfolio() {
       <section id="contact" style={{ padding:"96px clamp(1.5rem,5vw,3.5rem)", background:"rgba(0,224,255,.01)" }}>
         <div style={{ maxWidth:1100, margin:"0 auto" }}>
           <SecHead label="Get In Touch" accent={C.cyan} />
-          <div style={{ display:"grid", gridTemplateColumns: mobile ? "1fr" : "1fr 1fr", gap:36 }}>
-            <div>
-              <p style={{ color:C.muted, fontSize:16, lineHeight:1.85, marginBottom:28, fontFamily:"'DM Sans',sans-serif" }}>
-                Open to <span style={{ color:C.text, fontWeight:600 }}>full-time roles</span>, freelance work, or a conversation about what you're building. If it's interesting, reach out.
-              </p>
-              <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
-                {[
-                  ["✉","Email","salmanfarzee0001000@gmail.com","mailto:salmanfarzee0001000@gmail.com"],
-                  ["📞","Phone","+91 82205 25374","tel:+918220525374"],
-                  ["💼","LinkedIn","linkedin.com/in/salman-farzee","https://linkedin.com/in/salman-farzee"],
-                  ["📍","Location","Chennai, India",null],
-                ].map(([ic,lb,vl,href]) => (
-                  <div key={lb} style={{ ...card(), padding:"14px 18px", display:"flex", gap:14, alignItems:"center" }}>
-                    <span style={{ fontSize:18, flexShrink:0 }}>{ic}</span>
-                    <div>
-                      <div style={{ fontSize:10, color:C.dim, textTransform:"uppercase", letterSpacing:"1.5px", marginBottom:2, fontFamily:"'DM Sans',sans-serif" }}>{lb}</div>
-                      {href
-                        ? <a href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize:13, color:C.cyan, fontWeight:500, fontFamily:"'DM Sans',sans-serif" }}>{vl}</a>
-                        : <span style={{ fontSize:13, color:C.text, fontWeight:500, fontFamily:"'DM Sans',sans-serif" }}>{vl}</span>}
-                    </div>
-                  </div>
-                ))}
+          <p style={{ color:C.muted, fontSize:16, lineHeight:1.85, marginBottom:40, maxWidth:560, fontFamily:"'DM Sans',sans-serif" }}>
+            Open to <span style={{ color:C.text, fontWeight:600 }}>full-time roles</span>, freelance work, or a conversation about what you're building. If it's interesting, reach out.
+          </p>
+          <div style={{ display:"grid", gridTemplateColumns:`repeat(auto-fill,minmax(${mobile?"260px":"240px"},1fr))`, gap:16 }}>
+            {CONTACT_ITEMS.map(({ icon, label, value, href }) => (
+              <div key={label} className="contact-card" style={{ ...card(), padding:"22px 24px", display:"flex", gap:16, alignItems:"center" }}>
+                <div style={{ width:44, height:44, borderRadius:12, background:`${C.cyan}12`, border:`1px solid ${C.cyan}25`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, flexShrink:0 }}>
+                  {icon}
+                </div>
+                <div>
+                  <div style={{ fontSize:10, color:C.dim, textTransform:"uppercase", letterSpacing:"1.5px", marginBottom:4, fontFamily:"'DM Sans',sans-serif" }}>{label}</div>
+                  {href
+                    ? <a href={href} target="_blank" rel="noopener noreferrer" style={{ fontSize:13, color:C.cyan, fontWeight:600, fontFamily:"'DM Sans',sans-serif", wordBreak:"break-all" }}>{value}</a>
+                    : <span style={{ fontSize:13, color:C.text, fontWeight:500, fontFamily:"'DM Sans',sans-serif" }}>{value}</span>}
+                </div>
               </div>
-            </div>
-            <ContactForm />
+            ))}
           </div>
         </div>
       </section>
@@ -431,47 +459,6 @@ function SecHead({ label, accent }) {
     <div style={{ marginBottom:48 }}>
       <h2 style={{ fontSize:"clamp(26px,4vw,44px)", fontWeight:800, lineHeight:1.1, color:"#fff" }}>{label}</h2>
       <div style={{ width:52, height:3, background:`linear-gradient(to right,${accent},transparent)`, marginTop:14, borderRadius:2 }} />
-    </div>
-  );
-}
-
-// ── Contact Form ───────────────────────────────────────────────
-function ContactForm() {
-  const [f, setF]     = useState({ name:"", email:"", message:"" });
-  const [sent, setSent] = useState(false);
-  const wrap = {
-    background:"rgba(6,6,28,.78)", backdropFilter:"blur(20px)", WebkitBackdropFilter:"blur(20px)",
-    border:`1px solid rgba(0,224,255,.13)`, borderRadius:18, padding:"28px 30px",
-  };
-  return (
-    <div style={wrap}>
-      {sent ? (
-        <div style={{ textAlign:"center", padding:"44px 0", display:"flex", flexDirection:"column", alignItems:"center", gap:12 }}>
-          <span style={{ fontSize:48 }}>🚀</span>
-          <div style={{ fontSize:20, fontWeight:700, color:"#00e0ff" }}>Message Sent!</div>
-          <div style={{ fontSize:14, color:"rgba(140,160,210,.7)", fontFamily:"'DM Sans',sans-serif" }}>I'll get back to you as soon as possible.</div>
-        </div>
-      ) : (
-        <div style={{ display:"flex", flexDirection:"column", gap:16 }}>
-          {[["Name","text","Your name"],["Email","email","your@email.com"]].map(([lb,tp,ph]) => (
-            <div key={lb}>
-              <label style={{ display:"block", fontSize:10, color:"rgba(100,120,170,.4)", marginBottom:5, textTransform:"uppercase", letterSpacing:"1.5px", fontFamily:"'DM Sans',sans-serif" }}>{lb}</label>
-              <input className="cfield" type={tp} placeholder={ph}
-                value={f[lb.toLowerCase()]} onChange={e => setF(p => ({ ...p, [lb.toLowerCase()]:e.target.value }))} />
-            </div>
-          ))}
-          <div>
-            <label style={{ display:"block", fontSize:10, color:"rgba(100,120,170,.4)", marginBottom:5, textTransform:"uppercase", letterSpacing:"1.5px", fontFamily:"'DM Sans',sans-serif" }}>Message</label>
-            <textarea className="cfield" rows={5} placeholder="Tell me about the opportunity..."
-              value={f.message} onChange={e => setF(p => ({ ...p, message:e.target.value }))}
-              style={{ resize:"vertical" }} />
-          </div>
-          <button className="btn-prime" style={{ width:"100%", padding:14, fontSize:15 }}
-            onClick={() => { if (f.name && f.email && f.message) setSent(true); }}>
-            Send Message →
-          </button>
-        </div>
-      )}
     </div>
   );
 }
